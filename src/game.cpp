@@ -6,7 +6,6 @@
 // Game initialization and maintenance related functions
 
 #include "headers.h"
-#include "version.h"
 
 // holds the previous rnd state
 static uint32_t old_seed;
@@ -199,22 +198,25 @@ void setGameOptions() {
     }
 }
 
-// Support for Umoria 5.2.2 up to 5.7.x.
-// The save file format was frozen as of version 5.2.2.
 bool validGameVersion(uint8_t major, uint8_t minor, uint8_t patch) {
-    if (major != 5) {
-        return false;
+// Checks that the save file is compatible with the game version
+// The save file format was frozen as of Umoria 5.2.2.
+// Any change to the format requires a major version change which
+// is then checked here.  
+
+    if (major != CURRENT_VERSION_MAJOR) {
+        //return false;
     }
 
-    if (minor < 2) {
-        return false;
+    if (minor != CURRENT_VERSION_MINOR) {
+        //return false;
     }
 
-    if (minor == 2 && patch < 2) {
-        return false;
+    if (patch != CURRENT_VERSION_PATCH) {
+        //return false;
     }
 
-    return minor <= 7;
+    return major == CURRENT_VERSION_MAJOR;
 }
 
 bool isCurrentGameVersion(uint8_t major, uint8_t minor, uint8_t patch) {

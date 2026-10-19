@@ -6,7 +6,6 @@
 // Initialization, main() function and main loop
 
 #include "headers.h"
-#include "version.h"
 
 static bool parseGameSeed(const char *argv, uint32_t &seed);
 

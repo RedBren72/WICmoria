@@ -857,10 +857,21 @@ void playerGainSpells() {
     if (classes[py.misc.class_id].class_to_use_mage_spells == config::spells::SPELL_TYPE_MAGE) {
         // People with SPELL_TYPE_MAGE spells can't learn spell_bank if they can't read their books.
         if (!playerCanRead()) {
+            printMessage("You cannot read your spell book.");
+            return;
+        }
+        // People with SPELL_TYPE_MAGE spells can't learn spell_bank while in the dungeon
+        if ( dg.current_level > 0 ) {
+            printMessage("You can only study in the tranquility of the town.");
             return;
         }
         offset = config::spells::NAME_OFFSET_SPELLS;
     } else {
+        // Clerics can learn prayers in the dungeon but paladins cannot
+        if( py.misc.class_id != 2 && dg.current_level > 0 ) {
+            printMessage("You can only study in the tranquility of the town.");
+            return;
+        }
         offset = config::spells::NAME_OFFSET_PRAYERS;
     }
 
@@ -1710,13 +1721,14 @@ void playerForgetSpell() {
 
     char query;
     bool forgotten = false;
+    int spell_id = -1;
     vtype_t prompt_str = {'\0'};
     (void) snprintf(prompt_str, MORIA_MESSAGE_SIZE, "Forget which %s?", magic_type_str);
 
     while (!forgotten && getMenuItemId(prompt_str, query)) {
         int c = query - 'a';
         if (c >= 0 && c < spell_count && c < 22) {
-            int spell_id = spell_list[c];
+            spell_id = spell_list[c];
             uint32_t spell_mask = (1L << spell_id);
 
             py.flags.spells_learnt &= ~spell_mask;
@@ -1734,10 +1746,6 @@ void playerForgetSpell() {
                     break;
                 }
             }
-
-            vtype_t msg = {'\0'};
-            (void) snprintf(msg, MORIA_MESSAGE_SIZE, "You have forgotten the %s of %s.", magic_type_str, spell_names[spell_id + offset]);
-            printMessage(msg);
             forgotten = true;
         } else {
             terminalBellSound();
@@ -1746,7 +1754,11 @@ void playerForgetSpell() {
 
     terminalRestoreScreen();
 
-    if (forgotten) {
+    if (forgotten && spell_id != -1) {
+        vtype_t msg = {'\0'};
+        (void) snprintf(msg, MORIA_MESSAGE_SIZE, "You have forgotten the %s of %s.", magic_type_str, spell_names[spell_id + offset]);
+        printMessage(msg);
+
         playerCalculateAllowedSpellsCount();
         playerGainMana();
     } else {

@@ -6,7 +6,6 @@
 // Handle reading, writing, and displaying of high scores.
 
 #include "headers.h"
-#include "version.h"
 
 // High score file pointer
 FILE *highscore_fp;
