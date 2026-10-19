@@ -7,5 +7,5 @@
 // CMake will extract this information, if you rename these variables
 // then you must also update the CMakeLists.txt.
 constexpr uint8_t CURRENT_VERSION_MAJOR = 0;
-constexpr uint8_t CURRENT_VERSION_MINOR = 1;
+constexpr uint8_t CURRENT_VERSION_MINOR = 2;
 constexpr uint8_t CURRENT_VERSION_PATCH = 0;

@@ -18,6 +18,22 @@
 bool initializeScoreFile() {
     highscore_fp = fopen(config::files::scores.c_str(), (char *) "rb+");
 
+    if (highscore_fp == nullptr) {
+        // File doesn't exist yet, create a brand new one!
+        highscore_fp = fopen(config::files::scores.c_str(), (char *) "wb+");
+        if (highscore_fp != nullptr) {
+            // Write current version bytes so it has a valid header
+            putc(CURRENT_VERSION_MAJOR, highscore_fp);
+            putc(CURRENT_VERSION_MINOR, highscore_fp);
+            putc(CURRENT_VERSION_PATCH, highscore_fp);
+            fflush(highscore_fp);
+            
+            // Reopen in "rb+" mode so subsequent read/write expectations match normal startup flow
+            fclose(highscore_fp);
+            highscore_fp = fopen(config::files::scores.c_str(), (char *) "rb+");
+        }
+    }
+
     return highscore_fp != nullptr;
 }
 

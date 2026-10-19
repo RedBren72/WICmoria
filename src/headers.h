@@ -70,4 +70,5 @@
 #include "staves.h"
 #include "store.h"
 #include "treasure.h"
+#include "version.h"
 #include "wizard.h"
