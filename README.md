@@ -8,16 +8,24 @@ C language by James E. Wilson in 1988, and released as _Umoria_.
 Moria/Umoria has had many variants over the years, with [_Angband_](http://rephial.org/)
 being the most well known. Umoria was also an inspiration for one the most
 commercially successful action roguelike games, _Diablo_!
+WICmoria is a fork that repurposes _WIS_ and _INT_ to be needed by both divine and arcane magic users rather then one stat being vital and the other irrelevant.
 
-Supported Platforms:
+Tested Platforms:
+  - Linux (Fedora 44)
 
+Untested Platforms:
+  - Linux (Ubuntu/Debian)
   - Windows
   - macOS
-  - Linux (Ubuntu/Debian)
 
-Compiling and limited testing has been done for other Linux based system
-including NetBSD 8.1 and Fedora 32.
+## WICmoria 0.2.1 release
+Updated this README with the details of the 0.2.0 release.
 
+## WICmoria 0.2.0 release
+
+This version introduces the ability for players to forget spells.
+Because WIS now determines spell slots, races/classes that have INT as their primary stat faced a disadvantage late in the game if they fill their spell slots with basic spells early in the game. By introducing the ability to forget spells, arcane magic users and paladins can swap spells. However to prevent spell swapping to get around the limited spell slots, they can only learn spells in the tranquility of the town. This mirrors the gameplay of D&D where arcane magic users must prepare spells before a campaign.
+As vessels of the gods, it would be blasphemy for clerics to forget divine revelations, but they can still recieve revelations in the dungeons.
 
 ## WICmoria 0.1.x releases
 
