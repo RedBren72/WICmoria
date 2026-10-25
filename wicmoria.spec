@@ -5,7 +5,7 @@
 %endif
 
 Name:           wicmoria
-Version:        0.1.0
+Version:        0.2.2
 Release:        1%{?dist}
 Summary:    	wicmoria %{version}
 
@@ -68,6 +68,22 @@ echo "Please remove each user's ~/.config/wicmoria manually, if you need."
 %doc *.md
 
 %changelog
+* Sun Oct 25 2026 Brendan Weir <brendanweir13@gmail.com> - 0.2.2
+- Fixed a bug where players forgetting spells is treated the same as amnesia,
+  leading to the forgotten spell being auto-remembered when the player is next
+  able to learn a spell.
+
+* Tue Oct 20 2026 Brendan Weir <brendanweir13@gmail.com> - 0.2.1
+- Updated the README.md file.
+
+* Mon Oct 19 2026 Brendan Weir <brendanweir13@gmail.com> - 0.2.0
+- To compensate for the lower number of spell slots that arcane magic users
+  now have due to their lower WIS, they can now forget learned spells and
+  learn new ones, but only in town - just like prior to a D&D campaign.
+- Priests cannot forget the prayers revealed to them by their deities.
+- Paladins can forget prayers as they are followers not conduits of faith.
+
+
 * Sat Oct 10 2026 Brendan Weir <brendanweir13@gmail.com> - 0.1.0
 - This is a fork from umoria that makes INT and WIS from being class-specific
   duplicates to having distinct purposes.

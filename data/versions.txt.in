@@ -3,12 +3,19 @@
                 WICmoria is free software released under GPL-3.0
                    See LICENSE and AUTHORS.md for more details
 
-WICmoria 0.1.x forked from Umoria 5.7.15 by Brendan J. Weir.
+WICmoria forked from Umoria 5.7.15 by Brendan J. Weir.
+WICmoria's goal is to expand the utility of Wis, Int and Chr to players
+who would nuormally ignore them.
 
-Bug reports and contributions can be made to the Umoria repository:
-https://github.com/RedBren72/WISumoria
+Bug reports and contributions can be made to the WICmoria repository:
+https://github.com/RedBren72/WICmoria
+I won't promise I'll do anything with them, but feel free to use my code
+elsewhere, as per GPL-3.0 
 
-        Version 0.1  :  2026-10-11
+    2026-10-25 : Version 0.2 2
+    2026-10-20 : Version 0.2 1
+    2026-10-19 : Version 0.2 0
+    2026-10-10 : Version 0.1.0
 
 Umoria 5.7.x developed and maintained by Michael R. Cook.
 

@@ -3,6 +3,19 @@
 Tracking all changes since the 5.7.0 / Umoria baseline.
 
 
+## 0.2.2 (WICmoria Initial Release)
+### Fixed bug where player intiated spell forgetting was treated the same as amnesia
+* When a player chooses to forget a spell, it should revert to unknown, not forgotten.
+
+## 0.2.1 (WICmoria Initial Release)
+### Tidy up some versioning issues across files
+
+## 0.2.0 (WICmoria Initial Release)
+
+### Introduced the ability for players to forget spells.
+* Because WIS now determines spell slots, races/classes that have INT as their primary stat faced a disadvantage late in the game if they fill their spell slots with basic spells early in the game.
+* By introducing the ability to forget spells, arcane magic users and paladins can swap spells. However to prevent spell swapping to get around the limited spell slots, they can only learn spells in the tranquility of the town. This mirrors the gameplay of D&D where arcane magic users must prepare spells before a campaign. As vessels of the gods, it would be blasphemy for clerics to forget divine revelations, but they can still receive revelations in the dungeons.
+
 ## 0.1.0 (WICmoria Initial Release)
 
 ### Core Stat Repurposing (INT & WIS)
