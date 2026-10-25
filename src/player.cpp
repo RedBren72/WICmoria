@@ -1732,7 +1732,7 @@ void playerForgetSpell() {
             uint32_t spell_mask = (1L << spell_id);
 
             py.flags.spells_learnt &= ~spell_mask;
-            py.flags.spells_forgotten |= spell_mask;
+            //py.flags.spells_forgotten |= spell_mask;
 
             // Remove from learned order array
             for (int i = 0; i < 32; i++) {

@@ -7,7 +7,7 @@ In 2008 Moria/Umoria was re-licensed under the GNU General Public License
 version 3.0-or-later. All new additions to the code will fall under this license.
 
 
-## WICmoria 0.1.x
+## WICmoria 0.1.x - 0.2.2
 
 Brendan Weir [-BJW-] (GPL-3.0-or-later)
   This is a fork from Umoria that changes INT and WIS from being class-specific
